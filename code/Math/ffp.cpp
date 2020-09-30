@@ -49,3 +49,6 @@ void multiply(const vector<int> &a,const vector<int> &b,vector<int> &res)
     res.resize(n);
     for (int i=0;i<n;i++) res[i] = int(fa[i].real()+(fa[i].real()>0?0.5:-0.5));
 }
+//multiply(a, b, res)
+//for n = b.size
+//sum(a[i+j], b[n-1-j]) -> res[n+i]
