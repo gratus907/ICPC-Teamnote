@@ -51,4 +51,4 @@ void multiply(const vector<int> &a,const vector<int> &b,vector<int> &res)
 }
 //multiply(a, b, res)
 //for n = b.size
-//sum(a[i+j], b[n-1-j]) -> res[n+i]
+//sum(a[i+j], b[n-1-j]) -> res[n-1+i]
