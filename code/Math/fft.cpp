@@ -1,15 +1,10 @@
 #define _USE_MATH_DEFINES
-#include <math.h>
-#include <complex>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
 
 #define sz(v) ((int)(v).size())
 #define all(v) (v).begin(),(v).end()
+typedef vector<int> vi;
 typedef complex<double> base;
- 
+
 void fft(vector <base> &a, bool invert)
 {
     int n = sz(a);
@@ -36,8 +31,8 @@ void fft(vector <base> &a, bool invert)
         for (int i=0;i<n;i++) a[i] /= n;
     }
 }
- 
-void multiply(const vector<int> &a,const vector<int> &b,vector<int> &res)
+
+void multiply(const vi &a,const vi &b,vi &res)
 {
     vector <base> fa(all(a)), fb(all(b));
     int n = 1;
@@ -47,7 +42,8 @@ void multiply(const vector<int> &a,const vector<int> &b,vector<int> &res)
     for (int i=0;i<n;i++) fa[i] *= fb[i];
     fft(fa,true);
     res.resize(n);
-    for (int i=0;i<n;i++) res[i] = int(fa[i].real()+(fa[i].real()>0?0.5:-0.5));
+    for (int i=0;i<n;i++)
+        res[i] = int(fa[i].real()+(fa[i].real()>0?0.5:-0.5));
 }
 //multiply(a, b, res)
 //for n = b.size

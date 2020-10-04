@@ -11,11 +11,22 @@
 
 ## TODO
 - L-R Flow (LR Circulation)
-- Li Chao Tree
+-
 
 ## Testing Status
 양식) 알고리즘 : 문제 (나중에 확인용)
+
 ### Data Structures
 - Disjoint set union : BOJ 4195 (https://www.acmicpc.net/source/22694164)
+
+
 ### Math
 - Fast Fourier transform : BOJ 14756 (https://www.acmicpc.net/problem/14756)
+- Berlekamp Massey Algorithm : Copied from https://koosaga.com/231
+
+### Graph
+- MCMF : Copied from koosaga's teamnote
+- Dinic : Copied from Stanford teamnote
+
+### Geometry
+- LineSegments, Point : Kactl Library.

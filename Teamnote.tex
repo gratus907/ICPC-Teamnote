@@ -1,4 +1,4 @@
-\documentclass[landscape,8pt]{article}
+\documentclass[landscape]{article}
 \linespread{1}
 \usepackage{multicol}
 \setlength{\columnsep}{0.5cm}
@@ -47,6 +47,13 @@
 \title{\Huge{\textsf{ICPC TEAMNOTE}}}
 \author{}
 \date{ }
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\verbatim@input}{\@verbatim}{\@verbatim}{}{}
+\makeatother
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT MODIFY ABOVE PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -67,6 +74,44 @@
 \section{Dynamic Programming}
     \subsection{Li Chao Tree}
         \verbatiminput{./code/DynamicProgramming/LiChaoTree.cpp}
+
+\section{Mathematics}
+    \subsection{Fast Fourier Transform}
+        Multiply two polynomials in $O(n \log n)$. For
+        \verbatiminput{./code/Math/FFT.cpp}
+
+    \subsection{Berlekamp Massey Algorithm}
+        Find minimum linear recurrence from $3n$ first terms.
+        \verbatiminput{./code/Math/Berlekamp-Massey.cpp}
+
+\section{Geometry}
+    \subsection{Point header}
+        Use as \texttt{typedef Point<double> P;}
+        \verbatiminput{./code/Geometry/Point.h}
+    \subsection{Line / Line segment}
+        \texttt{lineDist} : Returns the signed distance between point p and the line containing points a and b. Positive value on left side and negative on right as seen from a towards b. a==b gives nan.\\
+        \texttt{lineInter, segInter} : Unique intersection : (1, point), No intersection : (0, (0, 0)), Infinitely many : (-1, (0, 0)).\\
+        \texttt{segDist} : Return shortest distance between p and segment $[s, e]$.
+        \verbatiminput{./code/Geometry/LineSegments.cpp}
+
+    \subsection{Polygons}
+        \verbatiminput{./code/Geometry/ConvexHull.cpp}
+            \begin{itemize}
+                \item $(-1, -1)$ if no collision,
+                \item $(i, -1)$ if touching the corner $i$,
+                \item $(i, i)$ if along side $(i, i+1)$,
+                \item $(i, j)$ if crossing sides $(i, i+1)$ and $(j, j+1)$.
+            \end{itemize}
+        \verbatiminput{./code/Geometry/Polygon.cpp}
+\section{Graph}
+    \subsection{Network Flow}
+        \subsubsection{Dinic's Maxflow}
+            Fast max flow algorithm. Use \texttt{maxflow} and \texttt{AddEdge}.
+            \verbatiminput{./code/Graph/Dinic.cpp}
+        \subsubsection{Min cost Max Flow}
+            Fast min cost max flow algorithm. Use \texttt{solveMCMF} and \texttt{AddEdge}.\\
+            solveMCMF returns pair of (max flow, cost of such flow).
+            \verbatiminput{./code/Graph/MCMF.cpp}
     \eject{}
 \end{multicols}
 \end{document}
