@@ -17,3 +17,5 @@
 양식) 알고리즘 : 문제 (나중에 확인용)
 ### Data Structures
 - Disjoint set union : BOJ 4195 (https://www.acmicpc.net/source/22694164)
+### Math
+- Fast Fourier transform : BOJ 14756 (https://www.acmicpc.net/problem/14756)
