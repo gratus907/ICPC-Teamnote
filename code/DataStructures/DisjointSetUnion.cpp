@@ -11,10 +11,7 @@ struct DSU
     {
         return x == par[x] ? x : (par[x] = find(par[x]));
     }
-    int getSize(int k)
-    {
-        return sz[find(k)];
-    }
+    int getSize(int k){return sz[find(k)];}
     void unite(int x, int y)
     {
         int u=find(x), v=find(y);
