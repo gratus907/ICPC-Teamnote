@@ -1,0 +1,31 @@
+.Todo {
+    border-top: 1px solid #f1f3f5;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.15s;
+}
+
+.Todo .text {
+    flex: 1;
+    text-align: left;
+    word-break: break-all;
+    cursor: pointer;
+}
+
+.Todo .text:hover {
+    color: orange;
+}
+
+.Todo .done {
+    text-decoration: line-through;
+    color: #adb5bd;
+}
+
+.Todo .done-mark {
+    font-size: 1.5rem;
+    line-height: 1rem;
+    margin-left: 1rem;
+    color: orange;
+    font-weight: 800;
+}

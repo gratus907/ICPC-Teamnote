@@ -26,7 +26,7 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhead[R]{ICPC 2020 Teamnote}
-\fancyhead[L]{Seoul National University : [INSERT TEAM NAME HERE]}
+\fancyhead[L]{Seoul National University : Swift Turtwig}
 \usepackage[compact]{titlesec}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
@@ -64,15 +64,29 @@
     \tableofcontents
     \pagebreak
 \end{multicols}
-\begin{multicols}{2}\raggedcolumns
+\begin{multicols}{3 }\raggedcolumns
 
 
 \section{Data Structures}
     \subsection{Disjoint Set Union}
         \verbatiminput{./code/DataStructures/DisjointSetUnion.cpp}
+    \subsection{Segment Tree (with Lazy propagation)}
+        Incremental modifications with lazy propagation. All intervals are $[l, r)$.
+        \verbatiminput{./code/DataStructures/SegmentTree.cpp}
+    \subsection{2D Segment Tree}
+        Point update, rectangle query. All intervals are $[a, b] \times [c, d]$.
+        \verbatiminput{./code/DataStructures/2DSegmentTree.cpp}
+    \subsection{Merge Sort Tree}
+        greater(s, e, k, 1, 0, n) : How many elements in range [s, e) are strictly greater than $k$?
+        \verbatiminput{./code/DataStructures/MergeSortTree.cpp}
+
 
 \section{Dynamic Programming}
     \subsection{Li Chao Tree}
+        Objective\\
+        (1) Line insert query (ax + b)\\
+        (2) Max / Min on x = t query\\
+        Current Implementation : Max query\\
         \verbatiminput{./code/DynamicProgramming/LiChaoTree.cpp}
 
 \section{Mathematics}
@@ -103,6 +117,7 @@
                 \item $(i, j)$ if crossing sides $(i, i+1)$ and $(j, j+1)$.
             \end{itemize}
         \verbatiminput{./code/Geometry/Polygon.cpp}
+
 \section{Graph}
     \subsection{Network Flow}
         \subsubsection{Dinic's Maxflow}
@@ -112,6 +127,19 @@
             Fast min cost max flow algorithm. Use \texttt{solveMCMF} and \texttt{AddEdge}.\\
             solveMCMF returns pair of (max flow, cost of such flow).
             \verbatiminput{./code/Graph/MCMF.cpp}
-    \eject{}
+
+\section{String}
+    \subsection{KMP}
+        Pi 배열의 정의 : $str[0]$ 부터 $str[i]$ 까지 중 접두사가 접미사와 같은 부분만큼의 길이.
+        \verbatiminput{./code/String/KMP.cpp}
+    \subsection{Manacher}
+        A[i] = $i$ 번을 중심으로 하는 가장 긴 팰린드롬이 되는 반지름.
+        \verbatiminput{./code/String/Manacher.cpp}
+
+
+\section{Misc}
+    \subsection{GCC Extensions : OST}
+        \verbatiminput{./code/Misc/pbds_ost.cpp}
+\eject{}
 \end{multicols}
 \end{document}

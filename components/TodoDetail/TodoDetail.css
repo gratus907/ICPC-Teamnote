@@ -1,0 +1,15 @@
+.TodoDetail .row {
+    display: flex;
+    padding: 20px;
+    height: 30px;
+    text-align: left;
+}
+
+.TodoDetail .left {
+    font-weight: bold;
+    flex: 25%
+}
+
+.TodoDetail .right {
+    flex: 75%;
+}

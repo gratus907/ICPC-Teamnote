@@ -1,9 +1,3 @@
-/*
-    Objective
-    (1) Line insert query (ax + b)
-    (2) Max / Min on x = t query
-    Current Implementation : Max query
-*/
 struct LiChao
 {
     struct Line // Linear function ax + b
