@@ -1,24 +1,32 @@
 /**
- * Author: Lukas Polacek
- * Date: 2009-10-26
+ * Author: Gratus907
+ * Date: 2020-10-08
  * License: CC0
  * Source: folklore
  * Description: Disjoint-set data structure.
  * Time: $O(\alpha(N))$
  */
-#pragma once
-
-struct UF {
-	vi e;
-	UF(int n) : e(n, -1) {}
-	bool sameSet(int a, int b) { return find(a) == find(b); }
-	int size(int x) { return -e[find(x)]; }
-	int find(int x) { return e[x] < 0 ? x : e[x] = find(e[x]); }
-	bool join(int a, int b) {
-		a = find(a), b = find(b);
-		if (a == b) return false;
-		if (e[a] > e[b]) swap(a, b);
-		e[a] += e[b]; e[b] = a;
-		return true;
-	}
+struct DSU
+{
+    int par[V], sz[V];
+    DSU(){init(V);}
+    void init(int n)
+    {
+        for (int i = 0; i<n; i++)
+        par[i] = i, sz[i] = 1;
+    }
+    int find(int x)
+    {
+        return x == par[x] ? x : (par[x] = find(par[x]));
+    }
+    int getSize(int k){return sz[find(k)];}
+    void unite(int x, int y)
+    {
+        int u=find(x), v=find(y);
+        if(u==v) return;
+        if(sz[u]>sz[v]) swap(u, v);
+        sz[v]+=sz[u];
+        sz[u] = 0;
+        par[u] = par[v];
+    }
 };

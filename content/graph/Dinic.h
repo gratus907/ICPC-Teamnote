@@ -1,53 +1,93 @@
 /**
- * Author: chilli
+ * Author: stanford library
  * Date: 2019-04-26
  * License: CC0
- * Source: https://cp-algorithms.com/graph/dinic.html
- * Description: Flow algorithm with complexity $O(VE\log U)$ where $U = \max |\text{cap}|$.
- * $O(\min(E^{1/2}, V^{2/3})E)$ if $U = 1$; $O(\sqrt{V}E)$ for bipartite matching.
- * Status: Tested on SPOJ FASTFLOW and SPOJ MATCHING, stress-tested
+ * Source: stanford library
+ * Description: Maxflow
+ * Status: 
  */
-#pragma once
+struct Edge
+{
+    int u, v;
+    ll cap, flow;
+    Edge() {}
+    Edge(int u, int v, ll cap): u(u), v(v), cap(cap), flow(0) {}
+};
 
-struct Dinic {
-	struct Edge {
-		int to, rev;
-		ll c, oc;
-		ll flow() { return max(oc - c, 0LL); } // if you need flows
-	};
-	vi lvl, ptr, q;
-	vector<vector<Edge>> adj;
-	Dinic(int n) : lvl(n), ptr(n), q(n), adj(n) {}
-	void addEdge(int a, int b, ll c, int rcap = 0) {
-		adj[a].push_back({b, sz(adj[b]), c, c});
-		adj[b].push_back({a, sz(adj[a]) - 1, rcap, rcap});
-	}
-	ll dfs(int v, int t, ll f) {
-		if (v == t || !f) return f;
-		for (int& i = ptr[v]; i < sz(adj[v]); i++) {
-			Edge& e = adj[v][i];
-			if (lvl[e.to] == lvl[v] + 1)
-				if (ll p = dfs(e.to, t, min(f, e.c))) {
-					e.c -= p, adj[e.to][e.rev].c += p;
-					return p;
-				}
-		}
-		return 0;
-	}
-	ll calc(int s, int t) {
-		ll flow = 0; q[0] = s;
-		rep(L,0,31) do { // 'int L=30' maybe faster for random data
-			lvl = ptr = vi(sz(q));
-			int qi = 0, qe = lvl[s] = 1;
-			while (qi < qe && !lvl[t]) {
-				int v = q[qi++];
-				for (Edge e : adj[v])
-					if (!lvl[e.to] && e.c >> (30 - L))
-						q[qe++] = e.to, lvl[e.to] = lvl[v] + 1;
-			}
-			while (ll p = dfs(s, t, LLONG_MAX)) flow += p;
-		} while (lvl[t]);
-		return flow;
-	}
-	bool leftOfMinCut(int a) { return lvl[a] != 0; }
+struct Dinic
+{
+    int N;
+    vector<Edge> E;
+    vector<vector<int>> g;
+    vector<int> d, pt;
+
+    Dinic(int N): N(N), E(0), g(N), d(N), pt(N) {}
+
+    void AddEdge(int u, int v, ll cap)
+    {
+        if (u != v)
+        {
+            E.push_back(Edge(u, v, cap));
+            g[u].push_back(E.size() - 1);
+            E.push_back(Edge(v, u, 0));
+            g[v].push_back(E.size() - 1);
+        }
+    }
+
+    bool BFS(int S, int T)
+    {
+        queue<int> q({S});
+        fill(d.begin(), d.end(), N + 1);
+        d[S] = 0;
+        while(!q.empty())
+        {
+            int u = q.front();
+            q.pop();
+            if (u == T) break;
+            for (int k: g[u])
+            {
+                Edge &e = E[k];
+                if (e.flow < e.cap && d[e.v] > d[e.u] + 1)
+                {
+                    d[e.v] = d[e.u] + 1;
+                    q.push(e.v);
+                }
+            }
+        }
+        return d[T] != N + 1;
+    }
+
+    ll DFS(int u, int T, ll flow = -1)
+    {
+        if (u == T || flow == 0) return flow;
+        for (int &i = pt[u]; i < g[u].size(); i++)
+        {
+            Edge &e = E[g[u][i]];
+            Edge &oe = E[g[u][i]^1];
+            if (d[e.v] == d[e.u] + 1)
+            {
+                ll amt = e.cap - e.flow;
+                if (flow != -1 && amt > flow) amt = flow;
+                if (ll pushed = DFS(e.v, T, amt))
+                {
+                    e.flow += pushed;
+                    oe.flow -= pushed;
+                    return pushed;
+                }
+            }
+        }
+        return 0;
+    }
+
+    ll MaxFlow(int S, int T)
+    {
+        ll total = 0;
+        while (BFS(S, T))
+        {
+            fill(pt.begin(), pt.end(), 0);
+            while (ll flow = DFS(S, T))
+                total += flow;
+        }
+        return total;
+    }
 };

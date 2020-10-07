@@ -1,3 +1,13 @@
+/**
+ * Author: Gratus907
+ * Date: 2020-10-08
+ * License: CC0
+ * Source: CF blog
+ * Description: A set with support for finding the n'th
+ * element, and finding the index of an element.
+ * To get a map, change \texttt{null\_type}.
+ * Time: O(\log N)
+ */
 #include <bits/extc++.h> /** keep-include */
 using namespace __gnu_pbds;
 
