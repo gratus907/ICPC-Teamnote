@@ -3,13 +3,13 @@ export TEXINPUTS=.:content/tex/:
 export max_print_line = 1048576
 
 help:
-	@echo "This makefile builds KACTL (KTH Algorithm Competition Template Library)"
+	@echo "This makefile builds teamnote (KTH Algorithm Competition Template Library)"
 	@echo ""
 	@echo "Available commands are:"
-	@echo "	make fast		- to build KACTL, quickly (only runs LaTeX once)"
-	@echo "	make kactl		- to build KACTL"
+	@echo "	make fast		- to build teamnote, quickly (only runs LaTeX once)"
+	@echo "	make teamnote		- to build teamnote"
 	@echo "	make clean		- to clean up the build process"
-	@echo "	make veryclean		- to clean up and remove kactl.pdf"
+	@echo "	make veryclean		- to clean up and remove teamnote.pdf"
 	@echo "	make test		- to run all the stress tests in stress-tests/"
 	@echo "	make test-compiles	- to test compiling all headers"
 	@echo "	make help		- to show this information"
@@ -18,20 +18,20 @@ help:
 	@echo "For more information see the file 'doc/README'"
 
 fast: | build
-	$(LATEXCMD) content/kactl.tex </dev/null
-	cp build/kactl.pdf kactl.pdf
+	$(LATEXCMD) content/teamnote.tex </dev/null
+	cp build/teamnote.pdf teamnote.pdf
 
-kactl: test-session.pdf | build
-	$(LATEXCMD) content/kactl.tex && $(LATEXCMD) content/kactl.tex
-	cp build/kactl.pdf kactl.pdf
+teamnote: test-session.pdf | build
+	$(LATEXCMD) content/teamnote.tex && $(LATEXCMD) content/teamnote.tex
+	cp build/teamnote.pdf teamnote.pdf
 
 clean:
-	cd build && rm -f kactl.aux kactl.log kactl.tmp kactl.toc kactl.pdf kactl.ptc
+	cd build && rm -f teamnote.aux teamnote.log teamnote.tmp teamnote.toc teamnote.pdf teamnote.ptc
 
 veryclean: clean
-	rm -f kactl.pdf test-session.pdf
+	rm -f teamnote.pdf test-session.pdf
 
-.PHONY: help fast kactl clean veryclean
+.PHONY: help fast teamnote clean veryclean
 
 build:
 	mkdir -p build/

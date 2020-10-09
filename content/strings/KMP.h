@@ -6,21 +6,43 @@
  * Time: O(n)
  * Status: Tested on Kattis, stringmatching
  */
-#pragma once
-
-vi pi(const string& s) {
-	vi p(sz(s));
-	rep(i,1,sz(s)) {
-		int g = p[i-1];
-		while (g && s[i] != s[g]) g = p[g-1];
-		p[i] = g + (s[i] == s[g]);
-	}
-	return p;
-}
-
-vi match(const string& s, const string& pat) {
-	vi p = pi(pat + '\0' + s), res;
-	rep(i,sz(p)-sz(s),sz(p))
-		if (p[i] == sz(pat)) res.push_back(i - 2 * sz(pat));
-	return res;
-}
+ vector<int> getPi(string p)
+ {
+ 	int j = 0;
+ 	int plen = p.length();
+ 	vector<int> pi;
+ 	pi.resize(plen);
+ 	for(int i = 1; i< plen; i++)
+ 	{
+ 		while((j > 0) && (p[i] !=  p[j]))
+ 			j = pi[j-1];
+ 		if(p[i] == p[j])
+ 		{
+ 			j++;
+ 			pi[i] = j;
+ 		}
+ 	}
+ 	return pi;
+ }
+ vector <int> kmp(string s, string p)
+ {
+ 	vector<int> ans;
+ 	auto pi = getPi(p);
+ 	int slen = s.length(), plen = p.length(), j = 0;
+ 	for(int i = 0 ; i < slen ; i++)
+ 	{
+ 		while(j>0 && s[i] != p[j])
+ 			j = pi[j-1];
+ 		if(s[i] == p[j])
+ 		{
+ 			if(j==plen-1)
+ 			{
+ 				ans.push_back(i-plen+1);
+ 				j = pi[j];
+ 			}
+ 			else
+ 				j++;
+ 		}
+ 	}
+ 	return ans;
+ }

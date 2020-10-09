@@ -1,6 +1,6 @@
 \contentsline {chapter}{\numberline {1}Contest}{1}{chapter.1}%
 \ttl@starttoc {chapters@1}
-\contentsline {section}{\texttt {template.cpp}\hspace {0.2em}}{1}{chapter.1}%
+\contentsline {section}{\texttt {template.cpp}\hspace {0.2em}}{1}{section*.1}%
 \contentsline {chapter}{\numberline {2}Data structures}{1}{chapter.2}%
 \ttl@stoptoc {chapters@1}
 \ttl@starttoc {chapters@2}
@@ -13,7 +13,7 @@
 \contentsline {subsection}{\texttt {2DSegmentTree.h}\hspace {0.2em}}{2}{lstnumber.2.4.80}%
 \contentsline {subsection}{\texttt {FenwickTree.h}\hspace {0.2em}}{2}{lstnumber.2.5.79}%
 \contentsline {subsection}{\texttt {FenwickTree2d.h}\hspace {0.2em}}{2}{lstnumber.2.6.22}%
-\contentsline {subsection}{\texttt {MergeSortTree.h}\hspace {0.2em}}{2}{lstnumber.2.7.22}%
+\contentsline {subsection}{\texttt {MergeSortTree.h}\hspace {0.2em}}{3}{lstnumber.2.7.22}%
 \contentsline {section}{\numberline {2.3}Li-Chao Tree}{3}{section.2.3}%
 \contentsline {subsection}{\texttt {LiChaoTree.h}\hspace {0.2em}}{3}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Miscellaneous}{3}{section.2.4}%
@@ -122,15 +122,12 @@
 \contentsline {subsection}{\texttt {MaximalCliques.h}\hspace {0.2em}}{14}{section.7.6}%
 \contentsline {subsection}{\texttt {MaximumClique.h}\hspace {0.2em}}{14}{lstnumber.7.17.12}%
 \contentsline {subsection}{\texttt {MaximumIndependentSet.h}\hspace {0.2em}}{14}{lstnumber.7.18.49}%
-\contentsline {section}{\numberline {7.7}Math}{14}{section.7.7}%
-\contentsline {subsection}{\numberline {7.7.1}Number of Spanning Trees}{14}{subsection.7.7.1}%
-\contentsline {subsection}{\numberline {7.7.2}Erdős–Gallai theorem}{14}{subsection.7.7.2}%
 \contentsline {chapter}{\numberline {8}Geometry}{14}{chapter.8}%
 \ttl@stoptoc {chapters@7}
 \ttl@starttoc {chapters@8}
 \contentsline {section}{\numberline {8.1}Geometric primitives}{14}{section.8.1}%
 \contentsline {subsection}{\texttt {Point.h}\hspace {0.2em}}{14}{section.8.1}%
-\contentsline {subsection}{\texttt {lineDistance.h}\hspace {0.2em}}{15}{lstnumber.8.1.28}%
+\contentsline {subsection}{\texttt {lineDistance.h}\hspace {0.2em}}{14}{lstnumber.8.1.28}%
 \contentsline {subsection}{\texttt {SegmentDistance.h}\hspace {0.2em}}{15}{lstnumber.8.2.4}%
 \contentsline {subsection}{\texttt {SegmentIntersection.h}\hspace {0.2em}}{15}{lstnumber.8.3.6}%
 \contentsline {subsection}{\texttt {lineIntersection.h}\hspace {0.2em}}{15}{lstnumber.8.4.13}%
@@ -141,7 +138,7 @@
 \contentsline {section}{\numberline {8.2}Circles}{15}{section.8.2}%
 \contentsline {subsection}{\texttt {CircleIntersection.h}\hspace {0.2em}}{15}{section.8.2}%
 \contentsline {subsection}{\texttt {CircleTangents.h}\hspace {0.2em}}{15}{lstnumber.8.10.11}%
-\contentsline {subsection}{\texttt {CirclePolygonIntersection.h}\hspace {0.2em}}{16}{lstnumber.8.11.13}%
+\contentsline {subsection}{\texttt {CirclePolygonIntersection.h}\hspace {0.2em}}{15}{lstnumber.8.11.13}%
 \contentsline {subsection}{\texttt {circumcircle.h}\hspace {0.2em}}{16}{lstnumber.8.12.19}%
 \contentsline {subsection}{\texttt {MinimumEnclosingCircle.h}\hspace {0.2em}}{16}{lstnumber.8.13.9}%
 \contentsline {section}{\numberline {8.3}Polygons}{16}{section.8.3}%
@@ -152,7 +149,7 @@
 \contentsline {subsection}{\texttt {ConvexHull.h}\hspace {0.2em}}{16}{lstnumber.8.18.13}%
 \contentsline {subsection}{\texttt {HullDiameter.h}\hspace {0.2em}}{16}{lstnumber.8.19.13}%
 \contentsline {subsection}{\texttt {PointInsideHull.h}\hspace {0.2em}}{16}{lstnumber.8.20.12}%
-\contentsline {subsection}{\texttt {LineHullIntersection.h}\hspace {0.2em}}{17}{lstnumber.8.21.14}%
+\contentsline {subsection}{\texttt {LineHullIntersection.h}\hspace {0.2em}}{16}{lstnumber.8.21.14}%
 \contentsline {section}{\numberline {8.4}Misc. Point Set Problems}{17}{section.8.4}%
 \contentsline {subsection}{\texttt {ClosestPair.h}\hspace {0.2em}}{17}{section.8.4}%
 \contentsline {subsection}{\texttt {kdTree.h}\hspace {0.2em}}{17}{lstnumber.8.23.17}%
@@ -166,8 +163,8 @@
 \ttl@stoptoc {chapters@8}
 \ttl@starttoc {chapters@9}
 \contentsline {section}{\texttt {KMP.h}\hspace {0.2em}}{18}{chapter.9}%
-\contentsline {section}{\texttt {Zfunc.h}\hspace {0.2em}}{18}{lstnumber.9.1.16}%
-\contentsline {section}{\texttt {Manacher.h}\hspace {0.2em}}{19}{lstnumber.9.2.12}%
+\contentsline {section}{\texttt {Zfunc.h}\hspace {0.2em}}{18}{lstnumber.9.1.40}%
+\contentsline {section}{\texttt {Manacher.h}\hspace {0.2em}}{18}{lstnumber.9.2.12}%
 \contentsline {section}{\texttt {MinRotation.h}\hspace {0.2em}}{19}{lstnumber.9.3.13}%
 \contentsline {section}{\texttt {SuffixArray.h}\hspace {0.2em}}{19}{lstnumber.9.4.8}%
 \contentsline {section}{\texttt {SuffixTree.h}\hspace {0.2em}}{19}{lstnumber.9.5.23}%
@@ -181,13 +178,15 @@
 \contentsline {subsection}{\texttt {IntervalCover.h}\hspace {0.2em}}{20}{lstnumber.10.1.23}%
 \contentsline {subsection}{\texttt {ConstantIntervals.h}\hspace {0.2em}}{20}{lstnumber.10.2.19}%
 \contentsline {section}{\numberline {10.2}Misc. algorithms}{20}{section.10.2}%
-\contentsline {subsection}{\texttt {TernarySearch.h}\hspace {0.2em}}{20}{section.10.2}%
-\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{20}{lstnumber.10.4.11}%
+\contentsline {subsection}{\texttt {BinarySearch.h}\hspace {0.2em}}{20}{section.10.2}%
+\contentsline {subsection}{\texttt {TernarySearch.h}\hspace {0.2em}}{20}{lstnumber.10.4.7}%
+\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{20}{lstnumber.10.5.11}%
 \contentsline {section}{\numberline {10.3}Dynamic programming}{20}{section.10.3}%
 \contentsline {subsection}{\texttt {KnuthDP.h}\hspace {0.2em}}{20}{section.10.3}%
-\contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{20}{lstnumber.10.6.1}%
-\contentsline {section}{\numberline {10.4}Debugging tricks}{21}{section.10.4}%
-\contentsline {section}{\numberline {10.5}Optimization tricks}{21}{section.10.5}%
-\contentsline {subsection}{\numberline {10.5.1}Bit hacks}{21}{subsection.10.5.1}%
-\contentsline {subsection}{\numberline {10.5.2}Pragmas}{21}{subsection.10.5.2}%
+\contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{20}{lstnumber.10.7.1}%
+\contentsline {chapter}{\numberline {11}Checkpoints}{22}{chapter.11}%
+\ttl@stoptoc {chapters@10}
+\ttl@starttoc {chapters@11}
+\contentsline {section}{\numberline {11.1}Debugging}{22}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Thinking}{22}{section.11.2}%
 \contentsfinish 

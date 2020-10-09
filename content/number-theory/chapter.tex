@@ -1,4 +1,29 @@
 \chapter{Number Theory}
+
+
+\section{Primes}
+\begin{verbatim}
+< 10^k    prime   # of prime
+----------------------------
+1             7            4
+2            97           25
+3           997          168
+4          9973         1229
+5         99991         9592
+6        999983        78498
+7       9999991       664579
+8      99999989      5761455
+9     999999937     50847534
+
+\end{verbatim}
+	Primitive roots exist modulo any prime power $p^a$, except for $p = 2, a > 2$, and there are $\phi(\phi(p^a))$ many.
+	For $p = 2, a > 2$, the group $\mathbb Z_{2^a}^\times$ is instead isomorphic to $\mathbb Z_2 \times \mathbb Z_{2^{a-2}}$.
+
+\section{Estimates}
+	$\sum_{d|n} d = O(n \log \log n)$.
+
+	The number of divisors of $n$ is at most around 100 for $n < 5e4$, 500 for $n < 1e7$, 2000 for $n < 1e10$, 200\,000 for $n < 1e19$.
+
 \section{Modular arithmetic}
 	\kactlimport{ModInverse.h}
 	\kactlimport{ModPow.h}
@@ -26,18 +51,6 @@
 	\kactlimport{ContinuedFractions.h}
 	\kactlimport{FracBinarySearch.h}
 
-\section{Primes}
-	$p=962592769$ is such that $2^{21} \mid p-1$, which may be useful. For hashing
-	use 970592641 (31-bit number), 31443539979727 (45-bit), 3006703054056749
-	(52-bit). There are 78498 primes less than 1\,000\,000.
-
-	Primitive roots exist modulo any prime power $p^a$, except for $p = 2, a > 2$, and there are $\phi(\phi(p^a))$ many.
-	For $p = 2, a > 2$, the group $\mathbb Z_{2^a}^\times$ is instead isomorphic to $\mathbb Z_2 \times \mathbb Z_{2^{a-2}}$.
-
-\section{Estimates}
-	$\sum_{d|n} d = O(n \log \log n)$.
-
-	The number of divisors of $n$ is at most around 100 for $n < 5e4$, 500 for $n < 1e7$, 2000 for $n < 1e10$, 200\,000 for $n < 1e19$.
 
 \section{Mobius Function}
 \[
