@@ -1,7 +1,7 @@
 /**
  * Author: gratus907
  * Date: 2021-07-26
- * Description: Finds strongly connected components in a
+ * Description: Finds sccs in a
  * directed graph. If vertices $u, v$ belong to the same component,
  * we can reach $u$ from $v$ and vice versa.
  * Time: O(E + V)
@@ -9,7 +9,7 @@
  * Usage: build graph only with add_edge. use C.find_scc();
  */
 
-struct Cosaraju
+struct Kosaraju
 {
     using graph = vector<vector<int>>;
     int V, E;
@@ -17,7 +17,7 @@ struct Cosaraju
     vector<vector<int>> scc;
     vector <int> dfs_stack, scc_id;
     vector <bool> visit;
-    Cosaraju(int n = 0) {
+    Kosaraju(int n = 0) {
         re_init(n);
     }
     void re_init(int n) {
