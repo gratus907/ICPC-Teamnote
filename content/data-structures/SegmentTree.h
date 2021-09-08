@@ -24,16 +24,16 @@ struct segtree
         for (int i = n-1; i>0; i--)
             T[i] = agg(T[i<<1], T[(i<<1)|1]);
     }
-    void modify(int pos, int val) {
+    void modify(int pos, elem val) {
         for (T[pos += n] = val; pos > 1; pos >>= 1)
             T[pos >> 1] = agg(T[pos], T[pos^1]);
     }
     // query is on [l, r)!!
-    elem query(elem l, elem r){
+    elem query(int l, int r){
         elem res = 0;
         for (l += n, r += n; l < r; l >>=1, r>>=1) {
             if (l & 1) res = agg(T[l++], res);
-            if (r & 1) res = agg(T[--r], res);
+            if (r & 1) res = agg(res, T[--r]);
         }
         return res;
     }
