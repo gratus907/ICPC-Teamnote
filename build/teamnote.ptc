@@ -175,18 +175,19 @@
 \contentsline {chapter}{\numberline {9}Various}{21}{chapter.9}%
 \ttl@stoptoc {chapters@8}
 \ttl@starttoc {chapters@9}
-\contentsline {section}{\numberline {9.1}Intervals}{21}{section.9.1}%
-\contentsline {subsection}{\texttt {IntervalContainer.h}\hspace {0.2em}}{21}{section.9.1}%
-\contentsline {subsection}{\texttt {IntervalCover.h}\hspace {0.2em}}{21}{lstnumber.9.1.23}%
-\contentsline {subsection}{\texttt {ConstantIntervals.h}\hspace {0.2em}}{22}{lstnumber.9.2.19}%
+\contentsline {section}{\texttt {FastIO.h}\hspace {0.2em}}{21}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Intervals}{22}{section.9.1}%
+\contentsline {subsection}{\texttt {IntervalContainer.h}\hspace {0.2em}}{22}{section.9.1}%
+\contentsline {subsection}{\texttt {IntervalCover.h}\hspace {0.2em}}{22}{lstnumber.9.2.23}%
+\contentsline {subsection}{\texttt {ConstantIntervals.h}\hspace {0.2em}}{22}{lstnumber.9.3.19}%
 \contentsline {section}{\numberline {9.2}Misc. algorithms}{22}{section.9.2}%
 \contentsline {subsection}{\texttt {BinarySearch.h}\hspace {0.2em}}{22}{section.9.2}%
-\contentsline {subsection}{\texttt {TernarySearch.h}\hspace {0.2em}}{22}{lstnumber.9.4.7}%
-\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{22}{lstnumber.9.5.11}%
-\contentsline {section}{\numberline {9.3}Dynamic programming}{22}{section.9.3}%
-\contentsline {subsection}{\texttt {KnuthDP.h}\hspace {0.2em}}{22}{section.9.3}%
-\contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{22}{lstnumber.9.7.1}%
-\contentsline {subsection}{\texttt {DynamicCHT.h}\hspace {0.2em}}{22}{lstnumber.9.8.18}%
+\contentsline {subsection}{\texttt {TernarySearch.h}\hspace {0.2em}}{22}{lstnumber.9.5.7}%
+\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{22}{lstnumber.9.6.11}%
+\contentsline {section}{\numberline {9.3}Dynamic programming}{23}{section.9.3}%
+\contentsline {subsection}{\texttt {KnuthDP.h}\hspace {0.2em}}{23}{section.9.3}%
+\contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{23}{lstnumber.9.8.1}%
+\contentsline {subsection}{\texttt {DynamicCHT.h}\hspace {0.2em}}{23}{lstnumber.9.9.18}%
 \contentsline {chapter}{\numberline {10}Checkpoints}{24}{chapter.10}%
 \ttl@stoptoc {chapters@9}
 \ttl@starttoc {chapters@10}
