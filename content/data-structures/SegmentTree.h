@@ -33,7 +33,7 @@ struct segtree
         elem res = 0;
         for (l += n, r += n; l < r; l >>=1, r>>=1) {
             if (l & 1) res = agg(T[l++], res);
-            if (r & 1) res = agg(T[--r], res);
+            if (r & 1) res = agg(res, T[--r]);
         }
         return res;
     }
