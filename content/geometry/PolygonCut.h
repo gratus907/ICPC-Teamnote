@@ -3,15 +3,7 @@
  * Date: 2009-03-21
  * License: CC0
  * Source:
- * Description:\\
-\begin{minipage}{75mm}
- Returns a vector with the vertices of a polygon with everything to the left of the line going from s to e cut away.
-\end{minipage}
-\begin{minipage}{15mm}
-\vspace{-6mm}
-\includegraphics[width=\textwidth]{content/geometry/PolygonCut}
-\vspace{-6mm}
-\end{minipage}
+ * Description: Returns a vector with the vertices of a polygon with everything to the left of the line going from s to e cut away.
  * Status: tested but not extensively
  * Usage:
  * 	vector<P> p = ...;

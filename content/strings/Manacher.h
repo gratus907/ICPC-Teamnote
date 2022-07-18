@@ -1,11 +1,9 @@
-int N,A[MAXN];
+int N, A[MAXN];
 char S[MAXN];
 
-void Manachers()
-{
+void Manachers() {
     int r = 0, p = 0;
-    for (int i=1;i<=N;i++)
-    {
+    for (int i = 1; i <= N; i++) {
         if (i <= r)
             A[i] = min(A[2*p-i],r-i);
         else
