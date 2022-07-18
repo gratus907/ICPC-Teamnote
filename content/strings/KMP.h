@@ -3,7 +3,7 @@ vector<int> getPi(string p) {
 	vector<int> pi;
 	pi.resize(plen);
 	for(int i = 1; i< plen; i++) {
-		while((j > 0) && (p[i] !=  p[j]))
+		while((j > 0) && (p[i] != p[j]))
 			j = pi[j-1];
 		if(p[i] == p[j]) {
 			j++;
