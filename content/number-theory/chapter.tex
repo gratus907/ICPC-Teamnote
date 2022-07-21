@@ -52,16 +52,19 @@
 	\kactlimport{FracBinarySearch.h}
 
 
-\section{Mobius Function}
-\[
+\section{Mobius Function / Dirichlet Convolution}
+\paragraph{Dirichlet Convolution}
+For $f, g : \mathbb{N} \to \mathbb{C}$, we define 
+$$(f * g)(n) = \sum_{d \mid n} f(d) g(n / d) = \sum_{ab = n} f(a)g(b)$$  
+Set of arithmetic functions form a commutative ring under pointwise addition and Dirichlet convolution, equipped with the multiplicative identity $\epsilon(n) = \chi_{\{1\}}(n)$. In this ring, we have $\mathbf{1} * \mu = \epsilon$ for the Mobius function $\mu$:
+$$
 	\mu(n) = \begin{cases} 0 & n \textrm{ is not square free}\\ 1 & n \textrm{ has even number of prime factors}\\ -1 & n \textrm{ has odd number of prime factors}\\\end{cases}
-\]
-  Mobius Inversion:
-  \[ g(n) = \sum_{d|n} f(d) \Leftrightarrow f(n) = \sum_{d|n} \mu(d)g(n/d) \]
-  Other useful formulas/forms:
+$$
+And also sum of divisor function $\sigma = id * \mathbf{1}$, number of divisors $d = 1 * 1$ gives $id = \sigma * \mu, \mathbf{1} = d * \mu$. 
+Finally, the Mobius inversion formula 
+$$g = f * \mathbf{1} \iff f = g * \mu, \quad \text{i.e } g(n) = \sum_{d \mid n} f(d) \iff f(n) = \sum_{d \mid n} \mu(d)g(n/d)$$
+\paragraph{Xudyh's Sieve : Setting}
+(1) For a multiplicative function $f$ ($f(ab) = f(a)f(b)$ when $\gcd(a, b) = 1$), $s_f$ can be computed in linear time
+(2) There exists a function $g$ such that, $s_g$ and $s_{f * g}$ can be evaluated super fast. 
 
-  $ \sum_{d | n} \mu(d) = [ n = 1] $ (very useful)
-
-  $ g(n) = \sum_{n|d} f(d) \Leftrightarrow f(n) = \sum_{n|d} \mu(d/n)g(d)$
-
- $ g(n) = \sum_{1 \leq m \leq n} f(\left\lfloor\frac{n}{m}\right \rfloor ) \Leftrightarrow f(n) = \sum_{1\leq m\leq n} \mu(m)g(\left\lfloor\frac{n}{m}\right\rfloor)$
+\kactlimport{XudyhSieve.h}
