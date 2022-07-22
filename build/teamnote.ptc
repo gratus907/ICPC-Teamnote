@@ -106,33 +106,34 @@
 \contentsline {subsection}{\texttt {CentroidDecomp.h}\hspace {0.2em}}{12}{lstnumber.6.5.60}%
 \contentsline {section}{\numberline {6.2}DFS algorithms}{12}{section.6.2}%
 \contentsline {subsection}{\texttt {SCC.h}\hspace {0.2em}}{12}{section.6.2}%
-\contentsline {subsection}{\texttt {BiconnectedComponents.h}\hspace {0.2em}}{13}{lstnumber.6.7.78}%
+\contentsline {subsection}{\texttt {BiconnectedComponents.h}\hspace {0.2em}}{13}{lstnumber.6.7.37}%
 \contentsline {subsection}{\texttt {2sat.h}\hspace {0.2em}}{13}{lstnumber.6.8.33}%
 \contentsline {section}{\numberline {6.3}Euler walk}{13}{section.6.3}%
 \contentsline {subsection}{\texttt {EulerWalk.h}\hspace {0.2em}}{13}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Shortest paths}{14}{section.6.4}%
-\contentsline {subsection}{\texttt {Dijkstra.h}\hspace {0.2em}}{14}{section.6.4}%
+\contentsline {section}{\numberline {6.4}Shortest paths}{13}{section.6.4}%
+\contentsline {subsection}{\texttt {Dijkstra.h}\hspace {0.2em}}{13}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Network flow}{14}{section.6.5}%
 \contentsline {subsection}{\texttt {Dinic.h}\hspace {0.2em}}{14}{section.6.5}%
 \contentsline {subsection}{\texttt {MinCostMaxFlow.h}\hspace {0.2em}}{14}{lstnumber.6.12.85}%
-\contentsline {subsection}{\texttt {EdmondsKarp.h}\hspace {0.2em}}{15}{lstnumber.6.13.70}%
+\contentsline {subsection}{\texttt {EdmondsKarp.h}\hspace {0.2em}}{14}{lstnumber.6.13.70}%
 \contentsline {subsection}{\texttt {MinCut.h}\hspace {0.2em}}{15}{lstnumber.6.14.35}%
 \contentsline {section}{\numberline {6.6}Matching}{15}{section.6.6}%
 \contentsline {subsection}{\texttt {BipartiteCheck.h}\hspace {0.2em}}{15}{section.6.6}%
 \contentsline {subsection}{\texttt {hopcroftKarp.h}\hspace {0.2em}}{15}{lstnumber.6.16.33}%
-\contentsline {subsection}{\texttt {DFSMatching.h}\hspace {0.2em}}{15}{lstnumber.6.17.42}%
-\contentsline {subsection}{\texttt {MinimumVertexCover.h}\hspace {0.2em}}{15}{lstnumber.6.18.22}%
-\contentsline {subsection}{\texttt {WeightedMatching.h}\hspace {0.2em}}{16}{lstnumber.6.19.20}%
-\contentsline {subsection}{\texttt {GeneralMatching.h}\hspace {0.2em}}{16}{lstnumber.6.20.31}%
+\contentsline {subsection}{\texttt {Hungarian.h}\hspace {0.2em}}{15}{lstnumber.6.17.42}%
+\contentsline {subsection}{\texttt {DFSMatching.h}\hspace {0.2em}}{16}{lstnumber.6.18.108}%
+\contentsline {subsection}{\texttt {MinimumVertexCover.h}\hspace {0.2em}}{16}{lstnumber.6.19.22}%
+\contentsline {subsection}{\texttt {WeightedMatching.h}\hspace {0.2em}}{16}{lstnumber.6.20.20}%
+\contentsline {subsection}{\texttt {GeneralMatching.h}\hspace {0.2em}}{16}{lstnumber.6.21.31}%
 \contentsline {section}{\numberline {6.7}Heuristics}{16}{section.6.7}%
 \contentsline {subsection}{\texttt {MaximalCliques.h}\hspace {0.2em}}{16}{section.6.7}%
-\contentsline {subsection}{\texttt {MaximumClique.h}\hspace {0.2em}}{16}{lstnumber.6.22.12}%
-\contentsline {subsection}{\texttt {MaximumIndependentSet.h}\hspace {0.2em}}{16}{lstnumber.6.23.49}%
-\contentsline {chapter}{\numberline {7}Geometry}{16}{chapter.7}%
+\contentsline {subsection}{\texttt {MaximumClique.h}\hspace {0.2em}}{16}{lstnumber.6.23.12}%
+\contentsline {subsection}{\texttt {MaximumIndependentSet.h}\hspace {0.2em}}{17}{lstnumber.6.24.49}%
+\contentsline {chapter}{\numberline {7}Geometry}{17}{chapter.7}%
 \ttl@stoptoc {chapters@6}
 \ttl@starttoc {chapters@7}
-\contentsline {section}{\numberline {7.1}Geometric primitives}{16}{section.7.1}%
-\contentsline {subsection}{\texttt {Point.h}\hspace {0.2em}}{16}{section.7.1}%
+\contentsline {section}{\numberline {7.1}Geometric primitives}{17}{section.7.1}%
+\contentsline {subsection}{\texttt {Point.h}\hspace {0.2em}}{17}{section.7.1}%
 \contentsline {subsection}{\texttt {lineDistance.h}\hspace {0.2em}}{17}{lstnumber.7.1.28}%
 \contentsline {subsection}{\texttt {SegmentDistance.h}\hspace {0.2em}}{17}{lstnumber.7.2.4}%
 \contentsline {subsection}{\texttt {SegmentIntersection.h}\hspace {0.2em}}{17}{lstnumber.7.3.6}%
@@ -142,9 +143,9 @@
 \contentsline {subsection}{\texttt {linearTransformation.h}\hspace {0.2em}}{17}{lstnumber.7.7.3}%
 \contentsline {subsection}{\texttt {LineProjectionReflection.h}\hspace {0.2em}}{17}{lstnumber.7.8.6}%
 \contentsline {subsection}{\texttt {Angle.h}\hspace {0.2em}}{17}{lstnumber.7.9.5}%
-\contentsline {section}{\numberline {7.2}Circles}{17}{section.7.2}%
-\contentsline {subsection}{\texttt {CircleIntersection.h}\hspace {0.2em}}{17}{section.7.2}%
-\contentsline {subsection}{\texttt {CircleTangents.h}\hspace {0.2em}}{17}{lstnumber.7.11.11}%
+\contentsline {section}{\numberline {7.2}Circles}{18}{section.7.2}%
+\contentsline {subsection}{\texttt {CircleIntersection.h}\hspace {0.2em}}{18}{section.7.2}%
+\contentsline {subsection}{\texttt {CircleTangents.h}\hspace {0.2em}}{18}{lstnumber.7.11.11}%
 \contentsline {subsection}{\texttt {CircleLine.h}\hspace {0.2em}}{18}{lstnumber.7.12.13}%
 \contentsline {subsection}{\texttt {CirclePolygonIntersection.h}\hspace {0.2em}}{18}{lstnumber.7.13.9}%
 \contentsline {subsection}{\texttt {circumcircle.h}\hspace {0.2em}}{18}{lstnumber.7.14.19}%
@@ -154,21 +155,21 @@
 \contentsline {subsection}{\texttt {PolygonArea.h}\hspace {0.2em}}{18}{lstnumber.7.17.11}%
 \contentsline {subsection}{\texttt {PolygonCenter.h}\hspace {0.2em}}{18}{lstnumber.7.18.8}%
 \contentsline {subsection}{\texttt {PolygonCut.h}\hspace {0.2em}}{18}{lstnumber.7.19.9}%
-\contentsline {subsection}{\texttt {PolygonUnion.h}\hspace {0.2em}}{18}{lstnumber.7.20.13}%
-\contentsline {subsection}{\texttt {ConvexHull.h}\hspace {0.2em}}{18}{lstnumber.7.21.33}%
+\contentsline {subsection}{\texttt {PolygonUnion.h}\hspace {0.2em}}{19}{lstnumber.7.20.13}%
+\contentsline {subsection}{\texttt {ConvexHull.h}\hspace {0.2em}}{19}{lstnumber.7.21.33}%
 \contentsline {subsection}{\texttt {HullDiameter.h}\hspace {0.2em}}{19}{lstnumber.7.22.13}%
 \contentsline {subsection}{\texttt {PointInsideHull.h}\hspace {0.2em}}{19}{lstnumber.7.23.12}%
 \contentsline {subsection}{\texttt {LineHullIntersection.h}\hspace {0.2em}}{19}{lstnumber.7.24.14}%
 \contentsline {section}{\numberline {7.4}Misc. Point Set Problems}{19}{section.7.4}%
 \contentsline {subsection}{\texttt {ClosestPair.h}\hspace {0.2em}}{19}{section.7.4}%
 \contentsline {subsection}{\texttt {kdTree.h}\hspace {0.2em}}{19}{lstnumber.7.26.17}%
-\contentsline {subsection}{\texttt {FastDelaunay.h}\hspace {0.2em}}{19}{lstnumber.7.27.63}%
+\contentsline {subsection}{\texttt {FastDelaunay.h}\hspace {0.2em}}{20}{lstnumber.7.27.63}%
 \contentsline {section}{\numberline {7.5}3D}{20}{section.7.5}%
 \contentsline {subsection}{\texttt {PolyhedronVolume.h}\hspace {0.2em}}{20}{section.7.5}%
 \contentsline {subsection}{\texttt {Point3D.h}\hspace {0.2em}}{20}{lstnumber.7.29.6}%
 \contentsline {subsection}{\texttt {3dHull.h}\hspace {0.2em}}{20}{lstnumber.7.30.32}%
-\contentsline {subsection}{\texttt {sphericalDistance.h}\hspace {0.2em}}{20}{lstnumber.7.31.49}%
-\contentsline {chapter}{\numberline {8}Strings}{20}{chapter.8}%
+\contentsline {subsection}{\texttt {sphericalDistance.h}\hspace {0.2em}}{21}{lstnumber.7.31.49}%
+\contentsline {chapter}{\numberline {8}Strings}{21}{chapter.8}%
 \ttl@stoptoc {chapters@7}
 \ttl@starttoc {chapters@8}
 \contentsline {section}{\texttt {KMP.h}\hspace {0.2em}}{21}{chapter.8}%
@@ -176,8 +177,8 @@
 \contentsline {section}{\texttt {Manacher.h}\hspace {0.2em}}{21}{lstnumber.8.2.12}%
 \contentsline {section}{\texttt {MinRotation.h}\hspace {0.2em}}{21}{lstnumber.8.3.17}%
 \contentsline {section}{\texttt {SuffixArray.h}\hspace {0.2em}}{21}{lstnumber.8.4.8}%
-\contentsline {section}{\texttt {SuffixTree.h}\hspace {0.2em}}{21}{lstnumber.8.5.38}%
-\contentsline {section}{\texttt {Hashing.h}\hspace {0.2em}}{21}{lstnumber.8.6.50}%
+\contentsline {section}{\texttt {SuffixTree.h}\hspace {0.2em}}{22}{lstnumber.8.5.38}%
+\contentsline {section}{\texttt {Hashing.h}\hspace {0.2em}}{22}{lstnumber.8.6.50}%
 \contentsline {section}{\texttt {AhoCorasick.h}\hspace {0.2em}}{22}{lstnumber.8.7.18}%
 \contentsline {chapter}{\numberline {9}Various}{22}{chapter.9}%
 \ttl@stoptoc {chapters@8}
@@ -189,12 +190,11 @@
 \contentsline {subsection}{\texttt {ConstantIntervals.h}\hspace {0.2em}}{23}{lstnumber.9.3.19}%
 \contentsline {section}{\numberline {9.2}Misc. algorithms}{23}{section.9.2}%
 \contentsline {subsection}{\texttt {BinarySearch.h}\hspace {0.2em}}{23}{section.9.2}%
-\contentsline {subsection}{\texttt {TernarySearch.h}\hspace {0.2em}}{23}{lstnumber.9.5.7}%
-\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{23}{lstnumber.9.6.11}%
-\contentsline {section}{\numberline {9.3}Dynamic programming}{23}{section.9.3}%
-\contentsline {subsection}{\texttt {KnuthDP.h}\hspace {0.2em}}{23}{section.9.3}%
-\contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{23}{lstnumber.9.8.1}%
-\contentsline {subsection}{\texttt {DynamicCHT.h}\hspace {0.2em}}{24}{lstnumber.9.9.18}%
+\contentsline {subsection}{\texttt {TernarySearch.h}\hspace {0.2em}}{24}{lstnumber.9.5.7}%
+\contentsline {subsection}{\texttt {LIS.h}\hspace {0.2em}}{24}{lstnumber.9.6.11}%
+\contentsline {section}{\numberline {9.3}Dynamic programming}{24}{section.9.3}%
+\contentsline {subsection}{\texttt {KnuthDP.h}\hspace {0.2em}}{24}{section.9.3}%
+\contentsline {subsection}{\texttt {DivideAndConquerDP.h}\hspace {0.2em}}{24}{lstnumber.9.8.1}%
 \contentsline {chapter}{\numberline {10}Checkpoints}{25}{chapter.10}%
 \ttl@stoptoc {chapters@9}
 \ttl@starttoc {chapters@10}

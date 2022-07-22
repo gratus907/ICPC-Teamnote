@@ -4,7 +4,7 @@
  * License: CC0
  * Source: idk
  * Description: Compute sum of rectangle $[a, b) \times [c, d)$ and point modification
- * Time: Both operations are $O(\log N)$.
+ * Time: Both operations are $O(\log^2 N)$.
  * Status: Stress-tested
  */
 
