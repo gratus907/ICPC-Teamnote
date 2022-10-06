@@ -1,48 +1,39 @@
 /**
- * Author: stet-stet
- * Date: 2022-07-18
+ * Author: Gratus907
+ * Date: 2020-10-08
  * License: CC0
  * Source: folklore
  * Description: Point modification, interval sum query on $[l, r)$.
  * Time: O(\log N)
- * Status: tested(2042)
+ * Status: stress-tested
  */
-#include<algorithm>
-#include<vector>
-template<class T>
-T defaultValue(){ return T(); }
+struct segtree {
+    using elem = int;
+    int n;
+    elem T[2*N];
 
-template<class T>
-T defaultOperation(T a,T b){return a+b;}
+    inline elem agg(elem a, elem b) {
+        return max(a, b);
+    }
 
-template <class S,S (*op)(S,S) = defaultOperation<S>,S (*e)() = defaultValue<S> > 
-struct segtree{ private:
-    int _n, size, log; std::vector<S> d; //if you need speed go use fenwick
-    void update(int k){ d[k] = op(d[k<<1],d[(k<<1)|1]); }
-    public:
-    explicit segtree(int n=1000000) : segtree(std::vector<S>(n,e())) {}
-    explicit segtree(const std::vector<S>& v) : _n(int(v.size())) {
-        log=0;
-        while( (1U << log) < (unsigned int)(_n)) log++;
-        size = 1<<log;
-        d = std::vector<S>(2*size,e());
-        for (int i=0;i<_n;++i) d[size+i] = v[i];
-        for(int i=size-1;i>=1;--i){
-            update(i);
-        }
+    void build(vector<elem> &v) {
+        n = v.size();
+        for (int i = 0; i<n; i++)
+            T[n+i] = v[i];
+        for (int i = n-1; i>0; i--)
+            T[i] = agg(T[i<<1], T[(i<<1)|1]);
     }
-    S get(int pos){return d[pos+size]; }
-    void modify(int pos, S val){
-        for (d[pos += size] = val; pos > 1; pos >>= 1)
-            d[pos >> 1] = op(d[pos], d[pos^1]);
+    void modify(int pos, elem val) {
+        for (T[pos += n] = val; pos > 1; pos >>= 1)
+            T[pos >> 1] = agg(T[pos], T[pos^1]);
     }
-    S query(int l, int r){ //[l,r)
-        S res = e(); // CAUTION
-        for(l += size, r += size; l < r; l>>=1, r>>=1){
-            if(l & 1) res = op(d[l++], res);
-            if(r & 1) res = op(res, d[--r]);
+    // query is on [l, r)!!
+    elem query(int l, int r){
+        elem res = 0;
+        for (l += n, r += n; l < r; l >>=1, r>>=1) {
+            if (l & 1) res = agg(T[l++], res);
+            if (r & 1) res = agg(res, T[--r]);
         }
         return res;
     }
 };
-
