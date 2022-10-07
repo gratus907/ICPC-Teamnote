@@ -5,6 +5,7 @@ $$D(i) = \min_{j < i} (D(j) + B(j) \times A(i))$$
 이를 직선 $l_j : y = D(j) + B(j) x$ 들을 삽입한 상황에서, $x = A(i)$를 쿼리하여 최솟값을 찾는 문제로 본다.
 
 $O(n^2) \to O(n \log n)$ (Linecontainer, Li-Chao Tree), 추가로 $B(j)$ 가 단조성을 갖는 경우 $O(n)$.
+\kactlimport{CHT.h}
 \kactlimport{LiChaoTree.h}    
 \kactlimport{LineContainer.h}
 

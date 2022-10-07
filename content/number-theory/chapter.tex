@@ -61,8 +61,10 @@ $$
 	\mu(n) = \begin{cases} 0 & n \textrm{ is not square free}\\ 1 & n \textrm{ has even number of prime factors}\\ -1 & n \textrm{ has odd number of prime factors}\\\end{cases}
 $$
 And also sum of divisor function $\sigma = id * \mathbf{1}$, number of divisors $d = 1 * 1$ gives $id = \sigma * \mu, \mathbf{1} = d * \mu$. 
+
 Finally, the Mobius inversion formula 
-$$g = f * \mathbf{1} \iff f = g * \mu, \quad \text{i.e } g(n) = \sum_{d \mid n} f(d) \iff f(n) = \sum_{d \mid n} \mu(d)g(n/d)$$
+$$g = f * \mathbf{1} \iff f = g * \mu$$
+$$g(n) = \sum_{d \mid n} f(d) \iff f(n) = \sum_{d \mid n} \mu(d)g(n/d)$$
 \paragraph{Xudyh's Sieve : Setting}
 (1) For a multiplicative function $f$ ($f(ab) = f(a)f(b)$ when $\gcd(a, b) = 1$), $s_f$ can be computed in linear time
 (2) There exists a function $g$ such that, $s_g$ and $s_{f * g}$ can be evaluated super fast. 

@@ -1,65 +1,84 @@
 /**
- * Author: Benjamin Qi, Oleksandr Kulkov, chilli
+ * Author: Benjamin Qi, Andrew Cheng
  * Date: 2020-01-12
  * License: CC0
- * Source: https://codeforces.com/blog/entry/53170, https://github.com/bqi343/USACO/blob/master/Implementations/content/graphs%20(12)/Trees%20(10)/HLD%20(10.3).h
+ * Source: https://usaco.guide/plat/hld?lang=cpp
  * Description: Decomposes a tree into vertex disjoint heavy paths and light
  * edges such that the path from any leaf to the root contains at most log(n)
- * light edges. Code does additive modifications and max queries, but can
- * support commutative segtree modifications/queries on paths and subtrees.
- * Takes as input the full adjacency list. VALS\_EDGES being true means that
- * values are stored in the edges, as opposed to the nodes. All values
- * initialized to the segtree default. Root must be 0.
+ * light edges. 
  * Time: O((\log N)^2)
  * Status: stress-tested against old HLD
  */
 #pragma once
+const int N = 2e5+5;
+const int D = 19;
+const int S = (1<<D);
 
-#include "../data-structures/LazySegmentTree.h"
+int n, q, v[N];
+vector<int> adj[N];
 
-template <bool VALS_EDGES> struct HLD {
-	int N, tim = 0;
-	vector<vi> adj;
-	vi par, siz, depth, rt, pos;
-	Node *tree;
-	HLD(vector<vi> adj_)
-		: N(sz(adj_)), adj(adj_), par(N, -1), siz(N, 1), depth(N),
-		  rt(N),pos(N),tree(new Node(0, N)){ dfsSz(0); dfsHld(0); }
-	void dfsSz(int v) {
-		if (par[v] != -1) adj[v].erase(find(all(adj[v]), par[v]));
-		for (int& u : adj[v]) {
-			par[u] = v, depth[u] = depth[v] + 1;
-			dfsSz(u);
-			siz[v] += siz[u];
-			if (siz[u] > siz[adj[v][0]]) swap(u, adj[v][0]);
+int sz[N], p[N], dep[N];
+int st[S], id[N], tp[N];
+
+void update(int idx, int val) {
+	st[idx += n] = val;
+	for (idx /= 2; idx; idx /= 2)
+		st[idx] = max(st[2 * idx], st[2 * idx + 1]);
+}
+
+int query(int lo, int hi) {
+	int ra = 0, rb = 0;
+	for (lo += n, hi += n + 1; lo < hi; lo /= 2, hi /= 2) {
+		if (lo & 1)
+			ra = max(ra, st[lo++]);
+		if (hi & 1)
+			rb = max(rb, st[--hi]);
+	}
+	return max(ra, rb);
+}
+
+int dfs_sz(int cur, int par) {
+	sz[cur] = 1;
+	p[cur] = par;
+	for(int chi : adj[cur]) {
+		if(chi == par) continue;
+		dep[chi] = dep[cur] + 1;
+		p[chi] = cur;
+		sz[cur] += dfs_sz(chi, cur);
+	}
+	return sz[cur];
+}
+
+int ct = 1;
+
+void dfs_hld(int cur, int par, int top) {
+	id[cur] = ct++;
+	tp[cur] = top;
+	update(id[cur], v[cur]);
+	int h_chi = -1, h_sz = -1;
+	for(int chi : adj[cur]) {
+		if(chi == par) continue;
+		if(sz[chi] > h_sz) {
+			h_sz = sz[chi];
+			h_chi = chi;
 		}
 	}
-	void dfsHld(int v) {
-		pos[v] = tim++;
-		for (int u : adj[v]) {
-			rt[u] = (u == adj[v][0] ? rt[v] : u);
-			dfsHld(u);
-		}
+	if(h_chi == -1) return;
+	dfs_hld(h_chi, cur, top);
+	for(int chi : adj[cur]) {
+		if(chi == par || chi == h_chi) continue;
+		dfs_hld(chi, cur, chi);
 	}
-	template <class B> void process(int u, int v, B op) {
-		for (; rt[u] != rt[v]; v = par[rt[v]]) {
-			if (depth[rt[u]] > depth[rt[v]]) swap(u, v);
-			op(pos[rt[v]], pos[v] + 1);
-		}
-		if (depth[u] > depth[v]) swap(u, v);
-		op(pos[u] + VALS_EDGES, pos[v] + 1);
+}
+
+int path(int x, int y){
+	int ret = 0;
+	while(tp[x] != tp[y]){
+		if(dep[tp[x]] < dep[tp[y]])swap(x,y);
+		ret = max(ret, query(id[tp[x]],id[x]));
+		x = p[tp[x]];
 	}
-	void modifyPath(int u, int v, int val) {
-		process(u, v, [&](int l, int r) { tree->add(l, r, val); });
-	}
-	int queryPath(int u, int v) { // Modify depending on problem
-		int res = -1e9;
-		process(u, v, [&](int l, int r) {
-				res = max(res, tree->query(l, r));
-		});
-		return res;
-	}
-	int querySubtree(int v) { // modifySubtree is similar
-		return tree->query(pos[v] + VALS_EDGES, pos[v] + siz[v]);
-	}
-};
+	if(dep[x] > dep[y])swap(x,y);
+	ret = max(ret, query(id[x],id[y]));
+	return ret;
+}
