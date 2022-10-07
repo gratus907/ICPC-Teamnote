@@ -1,9 +1,9 @@
+\footnotesize
 \chapter{DP Optimization}
 \section{Convex Hull Trick}
 점화식이 다음과 같은 형태를 만족할 때,
 $$D(i) = \min_{j < i} (D(j) + B(j) \times A(i))$$
 이를 직선 $l_j : y = D(j) + B(j) x$ 들을 삽입한 상황에서, $x = A(i)$를 쿼리하여 최솟값을 찾는 문제로 본다.
-
 $O(n^2) \to O(n \log n)$ (Linecontainer, Li-Chao Tree), 추가로 $B(j)$ 가 단조성을 갖는 경우 $O(n)$.
 \kactlimport{CHT.h}
 \kactlimport{LiChaoTree.h}    
@@ -17,4 +17,17 @@ $$D(i, j) = \min_{k < j} (D(i-1, k) + C(k, j))$$
 \kactlimport{DivideAndConquerDP.h}
 
 \section{Monotone Queue Optimization}
-\section{Alien's Trick}
+\textbf{Deque Trick}
+수열에서 sliding window 형태의 최솟값을 빠르게 확인해야 할 때, deque에 pair형으로 (값, 인덱스) 를 저장한다. 이때 front가 우리가 확인하고자 하는 구간을 벗어났다면 계속 pop front 하고, 뒤에 삽입할 때 삽입하려는 값보다 deque의 back이 더 크다면 이를 제거하는 형태로 deque를 monotonic하게 유지한다. 
+\kactlimport{DequeTrick.h}
+
+점화식 $D$가 $D(i) = \min_{j < i} (D(j) + C(j, i))$ 형태이고, $C$가 Monge array일 때, $O(n^2)$ DP를 $O(n \log n)$ 으로 줄이는 기법. 
+
+\textbf{가정} : 다음을 만족하는 $\text{cross}(i, j)$ 를 찾을 수 있다. 
+$$\text{cross}(i, j) > k \iff D(i) + C(i, k) < D(j) + C(j, k)$$
+Queue $Q$에 앞으로 계산할 점화식에서 답이 될 수 있는 후보들을 차례로 저장한다. 즉, $D(i...n)$ 이 답이 되는 $j$들. 따라서, $Q$의 모든 원소들이 
+$\text{cross}(Q_i, Q_{i+1}) < \text{cross}(Q_{i+1}, Q_{i+2})$ 를 만족하고, $\text{cross}(Q_0, Q_1) \geq i$ 를 만족하도록 한다. 이때, $D(i)$ 를 $D(Q_0) + C(Q_0, i)$를 구함으로써 해결. 
+
+각 $i$에 대해, $\text{cross}(Q_0, Q_1) \geq i$ 을 만족시키는 것은 $Q$에서 필요한 만큼 pop 하여 구할 수 있고, 원소를 $Q$에 삽입할 때 Cross 부등식을 유지하기 위해 CHT에서와 같이 조건이 성립할떄까지 맨 뒤 원소를 제거한다. Deque DP랑 비슷한 concept. 
+
+큐의 맨 뒤 원소 두개를 $x, y$라 할 때, $\text{cross}(x, y) \geq \text{cross}(y, i)$ 이면 $y$가 최적인 위치가 없으므로 이를 계속 pop한다. Cross 한번은 이분탐색으로 $O(\log n)$ 에 찾을 수 있고, 이를 $n$번 호출하므로 $O(n \log n)$.

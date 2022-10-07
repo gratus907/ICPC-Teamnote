@@ -1,18 +1,13 @@
 \chapter{Graph}
 
 \section{Theorems}
-% 1. in bipartite graph, |max flow| = |max matching| = |min vertex cover|, min vertex cover = v - max independent set (konig's theorem)
-% 2. In any graph without isolated vertices, |min edge cover| + |max matching|= |v|
-% 3. combining 1, 2, in bipartite with no isolated graph, |minimum edge cover| = |maximum independent set|
-
-% 이거랑 network의 edge가 모두 unit capacity거나, 더 general 하게는 src와 sink를 제외한 모든 vertex가 (outgoing edge가 1개고 이것이 unit capacity) or (incoming edge가 1개고 이것이 unit capacity)일 때 dinic이 O(E * min(V^2/3, E^1/2)) 으로 평소보다 빠르다
-\textbf{Konig's Theorem} In any bipartite graph, $\abs{\text{max flow}} = \abs{\text{max matching}} = \abs{\text{min vertex cover}}$. Also, $V - \abs{\text{max indep set}}$. 
+{\footnotesize\textbf{Konig's Theorem} In any bipartite graph, $\abs{\text{max flow}} = \abs{\text{max matching}} = \abs{\text{min vertex cover}}$. Also, $V - \abs{\text{max indep set}}$. 
 
 In any graph without isolated vertices, $\abs{\text{min edge cover}} + \abs{\text{max matching}} = V$
 
 $\Rightarrow$ For bipartite graph of no isolated edge,  $\abs{\text{min edge cover}} = \abs{\text{max indep set}}$
 
-\textbf{Flow complexity} When all edges are unit capacities (or more generally for all intermediate vertices, there are one in/out edge of unit capacity), Dinic's algorithm runs in $O(E \min(V^{2/3}, E^{1/2}))$
+\textbf{Flow complexity} When all edges are unit capacities (or more generally for all intermediate vertices, there are one in/out edge of unit capacity), Dinic's algorithm runs in $O(E \min(V^{2/3}, E^{1/2}))$}
 \section{Trees}
 	\kactlimport{LCA.h} % Todo
 	\kactlimport{HLD.h}
@@ -25,14 +20,11 @@ $\Rightarrow$ For bipartite graph of no isolated edge,  $\abs{\text{min edge cov
 	\kactlimport{BiconnectedComponents.h}
 	\kactlimport{2sat.h}
 
-\section{Euler Tour}
-	\kactlimport{EulerWalk.h}
-
 \section{Network flow}
 	\kactlimport{Dinic.h}
 	\kactlimport{MinCostMaxFlow.h}
-
-	\paragraph{L-R MaxFlow} (1) MCMF solution. For edge (a$\to$b) with bound $[l, r]$, make two edges as $(l, -1), (r-l ,0)$. MCMF forces flow to remaining $-1$ edges. COST : is there possible lr-flow. FLOW : actual lr-flow. (2) Dinic solution. Make new SRC and SNK. Make (SNK, SRC, INF) edge. For edge (a$\to$b) with bound $[l, r]$, make $(a \to \text{NEWSNK}, l)$, $(\text{NEWSRC} \to b, l)$, $(a\to b, r-l)$. Is sum of maxflow $\text{NEWSRC} \to \text{NEWSNK}$ equal to sum of $l$? To find actual flow, run dinic again with original SRC-SNK (without resetting).
+    {\footnotesize
+	\textbf{L-R MaxFlow} (1) MCMF solution. For edge (a$\to$b) with bound $[l, r]$, make two edges as $(l, -1), (r-l ,0)$. MCMF forces flow to remaining $-1$ edges. COST : is there possible lr-flow. FLOW : actual lr-flow. (2) Dinic solution. Make new SRC and SNK. Make (SNK, SRC, INF) edge. For edge (a$\to$b) with bound $[l, r]$, make $(a \to \text{NEWSNK}, l)$, $(\text{NEWSRC} \to b, l)$, $(a\to b, r-l)$. Is sum of maxflow $\text{NEWSRC} \to \text{NEWSNK}$ equal to sum of $l$? To find actual flow, run dinic again with original SRC-SNK (without resetting).}
 	\kactlimport{EdmondsKarp.h}
 	\kactlimport{MinCut.h}
 	\kactlimport{GlobalMinCut.h}
@@ -50,3 +42,8 @@ $\Rightarrow$ For bipartite graph of no isolated edge,  $\abs{\text{min edge cov
 	\kactlimport{MaximalCliques.h}
 	\kactlimport{MaximumClique.h}
 	\kactlimport{MaximumIndependentSet.h}
+
+\section{Other Stuff}
+	\kactlimport{EulerWalk.h}
+    \kactlimport{FloydWarshall.h}
+    \kactlimport{TopoSort.h}

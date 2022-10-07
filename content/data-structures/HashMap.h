@@ -1,5 +1,6 @@
 #pragma once
-
+#pragma GCC optimize ("O3")
+#pragma GCC target ("avx2")
 #include <bits/extc++.h> /** keep-include */
 // To use most bits rather than just the lowest ones:
 struct chash { // large odd number for C

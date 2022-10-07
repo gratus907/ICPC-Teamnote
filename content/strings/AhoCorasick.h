@@ -1,94 +1,79 @@
 /**
- * Source: kks227 Aho Corasick
+ * Source: My implementation
  * Status: stress-tested
  */
-const int MAX_SIZE = 202020;
-const char BASE_CHAR = 'a';
-
-struct Node
-{
-    Node* nxt[26];
-    Node* fail;
-    bool out;
-    Node()
-    {
-        fill(nxt, nxt+26, nullptr);
-        out = false;
+struct Trie {
+    int score = 0, id = 0;
+    string prefix;
+    Trie *next[26];
+    Trie *fail;
+    Trie(string s) {
+        score = 0;
+        id = trie_node_list.size();
+        prefix = s;
+        memset(next, 0, sizeof(next));
+        trie_node_list.push_back(this);
     }
-    ~Node()
-    {
-        for (int i = 0; i<26; i++)
-            if (nxt[i])
-                delete nxt[i];
-    }
-
-    void insert(const char *key)
-    {
-        if (*key == '\0')
-        {
-            out = true;
+    void insert(string &s, int p) {
+        if (p >= s.length())
             return;
-        }
-        int c = *key - BASE_CHAR;
-        if (!nxt[c])
-            nxt[c] = new Node;
-        nxt[c]->insert(key+1);
-    }
-
-};
-
-struct Trie
-{
-    Node *root;
-    Trie() {root = new Node;}
-    void insert(const char *key)
-    {
-        root->insert(key);
-    }
-    Node * follow(Node *nd, int ind)
-    {
-        Node * u = nd;
-        while (u != root && !u->nxt[ind])
-            u = u -> fail;
-        if (u -> nxt[ind])
-            u = u -> nxt[ind];
-        return u;
-    }
-    void build()
-    {
-        queue<Node*> q;
-        root->fail = root;
-        q.push(root);
-        while (!q.empty())
-        {
-            Node *cur = q.front();
-            q.pop();
-            for (int i = 0; i<26; i++)
-            {
-                Node *nxt = cur->nxt[i];
-                if (!nxt) continue;
-                if (cur == root) nxt->fail = root;
-                else
-                {
-                    Node * prev = cur -> fail;
-                    prev = follow(prev, i);
-                    nxt->fail = prev;
-                }
-                if (nxt->fail->out) nxt->out = true;
-                q.push(nxt);
+        else {
+            int cur = s[p] - 'A';
+            if (next[cur] == NULL) {
+                string nxt_str = prefix;
+                nxt_str.push_back(s[p]);
+                next[cur] = new Trie(nxt_str);
             }
+            next[cur]->insert(s, p+1);
         }
     }
-    bool find(const char* str)
-    {
-        Node * rt = root;
-        for (int i = 0; str[i]; i++)
-        {
-            int c = str[i]-BASE_CHAR;
-            rt = follow(rt, c);
-            if (rt->out)
-                return true;
+};
+Trie* root = new Trie("");
+
+Trie* follow(Trie* node, int ind) {
+    Trie* u = node;
+    while (u != root && !u->next[ind])
+        u = u -> fail;
+    if (u -> next[ind])
+        u = u -> next[ind];
+    return u;
+}
+
+void build_failure_links() {
+    queue<Trie*> q;
+    root->fail = root;
+    q.push(root);
+    while (!q.empty()) {
+        Trie *cur = q.front();
+        q.pop();
+        for (int i = 0; i < 26; i++) {
+            Trie *nxt = cur->next[i];
+            if (!nxt) continue;
+            if (cur == root) nxt->fail = root;
+            else {
+                Trie * prev = cur -> fail;
+                prev = follow(prev, i);
+                nxt->fail = prev;
+            }
+            q.push(nxt);
         }
-        return false;
     }
-} T;
+}
+
+bool match(string text) {
+    Trie* current = root;
+    bool result = false;
+    for(char _c : text){
+        int c = _c - 'a';
+        while(current != root && !current->next[c])
+            current = current->fail;
+        // move if next node is present.
+        if(current->next[c])
+            current = current->next[c];
+        // found output!
+        if(current->output){
+            result = true;
+            break;
+        }
+    }
+}
