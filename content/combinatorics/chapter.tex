@@ -1,10 +1,6 @@
-\chapter{Combinatorial}
-
+\chapter{Combinatorics}
+\footnotesize
 \section{Permutations}
-	\paragraph{Factorial Table} Table of factorials
-
-	\import{factorial.tex}
-
 	\paragraph{Cycles}
 		Let $g_S(n)$ be the number of $n$-permutations whose cycle lengths all belong to the set $S$. Then
 		$$\sum_{n=0} ^\infty g_S(n) \frac{x^n}{n!} = \exp\left(\sum_{n\in S} \frac{x^n} {n} \right)$$
@@ -26,14 +22,6 @@
 		Number of ways of writing $n$ as a sum of positive integers, disregarding the order of the summands.
 		$$ p(0) = 1,\ p(n) = \sum_{k \in \mathbb Z \setminus \{0\}}{(-1)^{k+1} p(n - k(3k-1) / 2)} $$
 		$$ p(n) \sim 0.145 / n \cdot \exp(2.56 \sqrt{n}) $$
-		\begin{table}[H]
-			\begin{center}
-				\begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
-					$n$    & 0 & 1 & 2 & 3 & 4 & 5 & 6  & 7  & 8  & 9  & 20  & 50  & 100 \\ \hline
-					$p(n)$ & 1 & 1 & 2 & 3 & 5 & 7 & 11 & 15 & 22 & 30 & 627 & $\mathtt{\sim}$2e5 & $\mathtt{\sim}$2e8 \\
-				\end{tabular}
-				\end{center}		
-		\end{table}
 
 	\subsection{Lucas' Theorem}
 		Let $n,m$ be non-negative integers and $p$ a prime. Write $n=n_kp^k+...+n_1p+n_0$ and $m=m_kp^k+...+m_1p+m_0$. Then $\binom{n}{m} \equiv \prod_{i=0}^k\binom{n_i}{m_i} \pmod{p}$.
@@ -41,7 +29,7 @@
 	\subsection{Binomials}
 		\kactlimport{multinomial.h}
 
-\section{General purpose numbers}
+\section{Miscellaneous Sequences}
 	\subsection{Bernoulli numbers}
 		EGF of Bernoulli numbers is $B(t)=\frac{t}{e^t-1}$ (FFT-able).
 		$B[0,\ldots] = [1, -\frac{1}{2}, \frac{1}{6}, 0, -\frac{1}{30}, 0, \frac{1}{42}, \ldots]$

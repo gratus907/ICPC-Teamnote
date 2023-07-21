@@ -1,4 +1,5 @@
 \chapter{Number Theory}
+\footnotesize
 
 
 \section{Primes}
@@ -52,8 +53,9 @@
 	\kactlimport{FracBinarySearch.h}
 
 
-\section{Mobius Function / Dirichlet Convolution}
+\section{Mobius / Dirichlet}
 \paragraph{Dirichlet Convolution}
+
 For $f, g : \mathbb{N} \to \mathbb{C}$, we define 
 $$(f * g)(n) = \sum_{d \mid n} f(d) g(n / d) = \sum_{ab = n} f(a)g(b)$$  
 Set of arithmetic functions form a commutative ring under pointwise addition and Dirichlet convolution, equipped with the multiplicative identity $\epsilon(n) = \chi_{\{1\}}(n)$. In this ring, we have $\mathbf{1} * \mu = \epsilon$ for the Mobius function $\mu$:
@@ -65,7 +67,9 @@ And also sum of divisor function $\sigma = id * \mathbf{1}$, number of divisors 
 Finally, the Mobius inversion formula 
 $$g = f * \mathbf{1} \iff f = g * \mu$$
 $$g(n) = \sum_{d \mid n} f(d) \iff f(n) = \sum_{d \mid n} \mu(d)g(n/d)$$
-\paragraph{Xudyh's Sieve : Setting}
+
+\paragraph{Xudyh's Sieve}
+
 (1) For a multiplicative function $f$ ($f(ab) = f(a)f(b)$ when $\gcd(a, b) = 1$), $s_f$ can be computed in linear time
 (2) There exists a function $g$ such that, $s_g$ and $s_{f * g}$ can be evaluated super fast. 
 
